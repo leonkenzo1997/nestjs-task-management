@@ -1,12 +1,12 @@
 export interface Task {
-    id: string;
-    title: string;
-    description: string;
-    status: TaskStatus;
+  id: string;
+  title: string;
+  description: string;
+  status: TaskStatus;
 }
 
 export enum TaskStatus {
-    OPEN = 'OPEN',
-    DONE = 'DONE',
-    IN_PROGRESS = 'IN_PROGRESS'
+  OPEN = 'OPEN',
+  DONE = 'DONE',
+  IN_PROGRESS = 'IN_PROGRESS',
 }
