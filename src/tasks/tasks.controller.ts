@@ -6,11 +6,12 @@ import {
   Param,
   Patch,
   Post,
-  Query
+  Query,
 } from '@nestjs/common';
 import { CreateTaskDTO } from './dto/create-task.dto';
 import { GetTasksFilterDTO } from './dto/get-tasks-filter.dto';
 import { UpdateTaskStatusDTO } from './dto/update-task-status.dto';
+import { Task } from './tasks.entity';
 // import { Task } from './task-status.enum';
 import { TasksService } from './tasks.service';
 
@@ -30,8 +31,12 @@ export class TasksController {
   // @Get('/:id')
   // getTaskById(@Param('id') id: string): Task {
   //   console.log('id', id);
-  //   return this.tasksService.getTaskById(id);
+  //   return this.tasksService.getTaskById(id); 
   // }
+  @Get('/:id')
+  getTaskById(@Param('id') id: string): Promise<Task> {
+    return this.tasksService.getTaskById(id);
+  }
 
   // @Patch('/:id/status')
   // updateTaskById(
