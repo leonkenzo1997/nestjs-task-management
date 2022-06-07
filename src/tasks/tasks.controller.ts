@@ -31,7 +31,7 @@ export class TasksController {
   // @Get('/:id')
   // getTaskById(@Param('id') id: string): Task {
   //   console.log('id', id);
-  //   return this.tasksService.getTaskById(id); 
+  //   return this.tasksService.getTaskById(id);
   // }
   @Get('/:id')
   getTaskById(@Param('id') id: string): Promise<Task> {
@@ -52,8 +52,8 @@ export class TasksController {
   //   this.tasksService.deleteTaskById(id);
   // }
 
-  // @Post()
-  // createTask(@Body() createTaskDTO: CreateTaskDTO): Task {
-  //   return this.tasksService.createTask(createTaskDTO);
-  // }
+  @Post()
+  createTask(@Body() createTaskDTO: CreateTaskDTO): Promise<Task> {
+    return this.tasksService.createTask(createTaskDTO);
+  }
 }

@@ -42,6 +42,7 @@ export class TasksService {
     }
     return found;
   }
+
   // getTaskById(id: string): Task {
   //   const found = this.tasks.find((task) => task.id === id);
   //   if (!found) {
@@ -68,4 +69,16 @@ export class TasksService {
   //   this.tasks.push(task);
   //   return task;
   // }
+
+  async createTask(createTaskDTO: CreateTaskDTO): Promise<Task> {
+    const { title, description } = createTaskDTO;
+    const task = {
+      title,
+      description,
+      status: TaskStatus.OPEN,
+    };
+    const dataTask = this.tasksRepository.create(task);
+    const result = await this.tasksRepository.save(dataTask);
+    return result;
+  }
 }
