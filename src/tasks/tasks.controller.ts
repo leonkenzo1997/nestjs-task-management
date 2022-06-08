@@ -52,6 +52,16 @@ export class TasksController {
   //   this.tasksService.deleteTaskById(id);
   // }
 
+  @Delete('/:id')
+  deleteTaskById(@Param('id') id: string): Promise<void> {
+    return this.tasksService.deleteTaskById(id);
+  }
+
+  // @Post()
+  // createTask(@Body() createTaskDTO: CreateTaskDTO): Task {
+  //   return this.tasksService.createTask(createTaskDTO);
+  // }
+
   @Post()
   createTask(@Body() createTaskDTO: CreateTaskDTO): Promise<Task> {
     return this.tasksService.createTask(createTaskDTO);
